@@ -8,16 +8,16 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-      
+    <header class="header">
+        <div id="high-score">
+            <a href="highscores.html">View High Scores</a>
+        </div>
+        <div id="timer">
+            Time: 75
+        </div>
+    </header>
+
     <div id="intro" class="intro">
-        <header class="header">
-            <div id="high-score">
-                <a href="highscores.html">View High Scores</a>
-            </div>
-            <div id="timer">
-                Time: 60
-            </div>
-        </header>
         <div class="container">
             <h1>Coding Countdown Challenge</h1>
             <p class="instructions">Answer the following questions in the amount of time given. Your score will be equal to how much time is left when you get through all the questions. Every wrong answer subtracts 15 seconds. Click the button below when you are ready to begin.</p>
@@ -26,14 +26,18 @@
     </div>
 
     <div id="showQuestions" class="showQuestions">
-          <div id="timer"></div>
-          <h1 id="question"></h1>
-          <button class="button" id="A"></button>
-          <button class="button" id="B"></button>
-          <button class="button" id="C"></button>
-          <button class="button" id="D"></button>
+        <h1 id="question">Where is Nashville?</h1>
+        <button class="button" id="A"></button>
+        <button class="button" id="B"></button>
+        <button class="button" id="C"></button>
+        <button class="button" id="D"></button>
     </div>
-    
+
+    <div id="yourScore" class="score">
+        <h1>Your Score:</h1>
+        <h2 id="gameScore"></h2>
+    </div>
+
     <script src="assets/js/script.js"></script>
   </body>
 </html>
