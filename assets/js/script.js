@@ -1,24 +1,31 @@
 var startButton = document.getElementById("start-button");
 var quizTimer = document.getElementById("timer");
-var timeLeft = 10;
-var answerButtonA = document.getElementById("A");
-var answerButtonB = document.getElementById("B");
-var answerButtonC = document.getElementById("C");
-var answerButtonD = document.getElementById("D");
-var yourScore = document.getElementById("question");
+var timeLeft = 75;
+var answerButtonAEl = document.getElementById("A");
+var answerButtonBEl = document.getElementById("B");
+var answerButtonCEl = document.getElementById("C");
+var answerButtonDEl = document.getElementById("D");
+var questionEl = document.getElementById("question");
+var currentQuestionIndex = 0;
+var correct;
 
 // show questions and hide introductory page
-function showQuestions() {
-    var showQuestions = document.getElementById("showQuestions");
-    showQuestions.style.display = "block";
+function showQuestion() {
+    var showQuestion = document.getElementById("showQuestion");
+    showQuestion.style.display = "block";
     var intro = document.getElementById("intro");
     intro.style.display = "none";
+
+    var currentQuestion = questions[currentQuestionIndex];
+    questionEl.innerHTML = currentQuestion.question;
+    answerButtonAEl.innerHTML = currentQuestion.choices[0];
+    answerButtonBEl.innerHTML = currentQuestion.choices[1];
+    answerButtonCEl.innerHTML = currentQuestion.choices[2];
+    answerButtonDEl.innerHTML = currentQuestion.choices[3];
 }
 
-startButton.addEventListener("click", showQuestions);
-
 // start timer
-function startTimer () {
+function startTimer() {
     var timerInterval = setInterval(function() {
         timeLeft--;
         quizTimer.textContent = "Time: " + timeLeft;
@@ -30,7 +37,12 @@ function startTimer () {
       }, 1000); 
 }
 
-startButton.addEventListener("click", startTimer);
+function startQuiz() {
+    showQuestion();
+    startTimer();
+}
+
+startButton.addEventListener("click", startQuiz);
 
 // questions array for the Coding Countdown Challenge
 var questions = [
@@ -65,10 +77,15 @@ var questions = [
     },
 ] 
 
+// check answer when button is clicked
+function checkAnswer() {
+
+}
+
 // show score function after all questions are answered or timer is 0
 function showScore() {
-    var showQuestions = document.getElementById("showQuestions");
-    showQuestions.style.display = "none";
+    var showQuestion = document.getElementById("showQuestion");
+    showQuestion.style.display = "none";
     var yourScore = document.getElementById("yourScore");
     yourScore.style.display = "block";
     var gameScore = document.getElementById("gameScore");
