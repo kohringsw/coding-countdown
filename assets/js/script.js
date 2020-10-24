@@ -1,12 +1,14 @@
 var startButton = document.getElementById("start-button");
 var quizTimer = document.getElementById("timer");
 var timeLeft = 75;
+var answerButtonEl = document.getElementById("A", "B", "C", "D");
 var answerButtonAEl = document.getElementById("A");
 var answerButtonBEl = document.getElementById("B");
 var answerButtonCEl = document.getElementById("C");
 var answerButtonDEl = document.getElementById("D");
 var questionEl = document.getElementById("question");
 var currentQuestionIndex = 0;
+var finalQuestionIndex = 4;
 var correct;
 
 // show questions and hide introductory page
@@ -30,7 +32,7 @@ function startTimer() {
         timeLeft--;
         quizTimer.textContent = "Time: " + timeLeft;
     
-        if(timeLeft === 0) {
+        if (timeLeft === 0) {
           clearInterval(timerInterval);
           showScore();
         }
@@ -49,38 +51,56 @@ var questions = [
     {
     question: "Commonly used data types DO NOT include:",
     choices: ["A. Strings", "B. Booleans", "C. Alerts", "D. Numbers"],
-    correct: "C. Alerts"
+    correct: "C"
     },
     
     {
     question: "The condition in an if/else statement is enclosed within:",
     choices: ["A. Parentheses", "B. Curly brackets", "C. Quotes", "D. Square brackets"],
-    correct: "A. Parentheses"
+    correct: "A"
     },
 
     {
     question: "Arrays in JavaScript can be used to store:",
     choices: ["A. Numbers and strings", "B. Other arrays", "C. Booleans", "D. All of the above"],
-    correct: "D. All of the above"
+    correct: "D"
     },
 
     {
     question: "When being assigned to variables, strings must be enclosed within:",
     choices: ["A. Commas", "B. Quotes", "C. Curly Brackets", "D. Parentheses"],
-    correct: "B. Quotes"
+    correct: "B"
     },
 
     {
     question: "A very useful tool used during development and debugging for printing content to the debugger is:",
     choices: ["A. Console.log", "B. GitHub", "C. JavaScript", "D. For loops"],
-    correct: "A. Console.log"
+    correct: "A"
     },
 ] 
 
 // check answer when button is clicked
-function checkAnswer() {
+function checkAnswer(answer) {
+    correct = questions[currentQuestionIndex].correct;
+    
+    if (answer === correct && currentQuestionIndex !== finalQuestionIndex) {
+        questionEl.textContent = "Correct!";
+        currentQuestionIndex++;
+        showQuestion();
+    }
 
+    else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex) {
+        questionEl.textContent = "Wrong!";
+        currentQuestionIndex++;
+        showQuestion();
+        timeLeft = timeLeft - 14;
+    }
+
+    else {
+        showScore();
+    }
 }
+
 
 // show score function after all questions are answered or timer is 0
 function showScore() {
@@ -90,5 +110,10 @@ function showScore() {
     yourScore.style.display = "block";
     var gameScore = document.getElementById("gameScore");
     gameScore.textContent = timeLeft;
+}
+
+// log score function 
+function saveScore() {
+    localStorage.setItem(timeLeft);
 
 }

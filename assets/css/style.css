@@ -1,6 +1,6 @@
 :root {
     --first-color: rgb(87, 0, 168);
-    --second-color: rgb(207, 207, 207);
+    --second-color: rgb(230, 230, 230);
     --third-color: rgb(0, 0, 0);
 }
 
@@ -77,19 +77,37 @@
       outline: none;
 }
 
+.score {
+    font-size: 16px;
+    margin: 30px auto;
+    border: solid 2px var(--first-color);
+    display: block;
+    padding: 10px 20px;
+    color: var(--third-colorcolor);
+    width: auto;
+    border-radius: 15px;
+    background-color: var(--second-color);
+    outline: none;
+}
+
 .showQuestion .button {
     display: block;
     width: auto;
     margin: 30px auto;
 }
 
-.showQuestion, .score {
+.showQuestion, .showScore {
     margin: 50px auto;
     width: 100%;
     height: 100%;
     text-align: center;
     align-items: center;
     display: none;
+}
+
+.showScore #gameScore {
+    margin: 30px;
+   
 }
 
   
