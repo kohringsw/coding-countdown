@@ -8,19 +8,32 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
+      
+    <div id="intro" class="intro">
         <header class="header">
             <div id="high-score">
                 <a href="highscores.html">View High Scores</a>
             </div>
             <div id="timer">
-                Score: 100
+                Time: 60
             </div>
         </header>
-        <div id="ask-questions" class="container">
-            <h1 id="questions" class="coding-challenge">Coding Countdown Challenge</h1>
-            <p class="instructions">Try to answer the following questions within the time limit. The amount of time remaining when you've answered all the questions will be your score. Keep in mind that wrong answers will reduce your time/score by 10 seconds/points.</p>
-            <button id="start-button" class="button">Begin Challenge</button>
+        <div class="container">
+            <h1>Coding Countdown Challenge</h1>
+            <p class="instructions">Answer the following questions in the amount of time given. Your score will be equal to how much time is left when you get through all the questions. Every wrong answer subtracts 15 seconds. Click the button below when you are ready to begin.</p>
+            <button id="start-button" class="button">BEGIN CHALLENGE</button>
         </div>
+    </div>
+
+    <div id="showQuestions" class="showQuestions">
+          <div id="timer"></div>
+          <h1 id="question"></h1>
+          <button class="button" id="A"></button>
+          <button class="button" id="B"></button>
+          <button class="button" id="C"></button>
+          <button class="button" id="D"></button>
+    </div>
+    
     <script src="assets/js/script.js"></script>
   </body>
 </html>

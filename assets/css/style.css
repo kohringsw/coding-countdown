@@ -1,3 +1,9 @@
+:root {
+    --first-color: rgb(87, 0, 168);
+    --second-color: rgb(207, 207, 207);
+    --third-color: rgb(0, 0, 0);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +23,8 @@
 }
 
 #timer {
-    margin: 20px;
+    margin: 20px 30px 20px 0;
+    justify-content: left;
 }
 
 .container {
@@ -27,15 +34,15 @@
     text-align: center;
 }
   
-.coding-challenge {
-    margin: 50px 0 30px 0;
+.container h1 {
+    margin: 30px 0 30px 0;
 }
   
 .instructions {
     display: flex;
     flex: wrap;
     justify-content: center;
-    margin: 30px 200px;
+    margin: 30px 10%;
     font-size: 20px;
     text-align: center;
 }
@@ -48,15 +55,34 @@
 }
 
 .button {
-      background-color: rgb(87, 0, 168);
+      background-color: var(--first-color);
       color: white;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: bold;
-      padding: 10px;
-      width: 250px;
-      border-radius: 10px;
+      padding: 15px 30px;
+      width: auto;
+      border-radius: 15px;
       border: none;
       box-shadow: 0 0 3px #000000;
+      text-align: center;
+      outline: none;
 }
+
+.showQuestions .button {
+    display: block;
+    width: auto;
+    margin: 20px auto;
+}
+
+.showQuestions {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    display: none;
+}
+
+
   
  
