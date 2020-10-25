@@ -55,6 +55,12 @@
     font-size: 20px;
     text-align: center;
 }
+
+.highScores {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+}
   
 #read {
     margin: auto;
@@ -69,12 +75,18 @@
       font-size: 18px;
       font-weight: bold;
       padding: 15px 30px;
+      margin: 30px;
       width: auto;
       border-radius: 15px;
       border: none;
       box-shadow: 0 0 3px #000000;
       text-align: center;
       outline: none;
+}
+
+.replay {
+    color: white;
+    text-decoration: none;
 }
 
 .score {
@@ -107,7 +119,13 @@
 
 .showScore #gameScore {
     margin: 30px;
-   
+}
+
+#right, #wrong {
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+    display: none;
 }
 
   

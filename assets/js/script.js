@@ -6,10 +6,15 @@ var answerButtonAEl = document.getElementById("A");
 var answerButtonBEl = document.getElementById("B");
 var answerButtonCEl = document.getElementById("C");
 var answerButtonDEl = document.getElementById("D");
+var rightAnswerEl = document.getElementById("right");
+var wrongAnswerEl = document.getElementById("wrong");
 var questionEl = document.getElementById("question");
 var currentQuestionIndex = 0;
 var finalQuestionIndex = 4;
+var timerInterval;
 var correct;
+var gameScore = document.getElementById("gameScore");
+var submitScoreButtonEl = document.getElementById("submitScore");
 
 // show questions and hide introductory page
 function showQuestion() {
@@ -31,6 +36,7 @@ function startTimer() {
     var timerInterval = setInterval(function() {
         timeLeft--;
         quizTimer.textContent = "Time: " + timeLeft;
+
     
         if (timeLeft === 0) {
           clearInterval(timerInterval);
@@ -80,17 +86,27 @@ var questions = [
 ] 
 
 // check answer when button is clicked
+function rightAnswer() {
+    rightAnswerEl.style.display = "block";
+    wrongAnswerEl.style.display = "none";
+}
+
+function wrongAnswer() {
+    wrongAnswerEl.style.display = "block";
+    rightAnswerEl.style.display = "none";
+}
+
 function checkAnswer(answer) {
     correct = questions[currentQuestionIndex].correct;
     
     if (answer === correct && currentQuestionIndex !== finalQuestionIndex) {
-        questionEl.textContent = "Correct!";
+        rightAnswer();
         currentQuestionIndex++;
         showQuestion();
     }
 
-    else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex) {
-        questionEl.textContent = "Wrong!";
+    else if (answer !== correct || currentQuestionIndex !==finalQuestionIndex) {
+        wrongAnswer();
         currentQuestionIndex++;
         showQuestion();
         timeLeft = timeLeft - 14;
@@ -98,9 +114,9 @@ function checkAnswer(answer) {
 
     else {
         showScore();
+        clearInterval(timerInterval);
     }
 }
-
 
 // show score function after all questions are answered or timer is 0
 function showScore() {
@@ -108,12 +124,12 @@ function showScore() {
     showQuestion.style.display = "none";
     var yourScore = document.getElementById("yourScore");
     yourScore.style.display = "block";
-    var gameScore = document.getElementById("gameScore");
     gameScore.textContent = timeLeft;
 }
 
 // log score function 
-function saveScore() {
-    localStorage.setItem(timeLeft);
-
+function submitScore() {
+    var inputName= document.getElementById("initials");
+    localStorage.setItem("initials", inputName.value);
+    submitScoreButtonEl.addEventListener("click", inputName);
 }
