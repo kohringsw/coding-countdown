@@ -33,9 +33,9 @@ function showQuestion() {
 
 // start timer
 function startTimer() {
-    var timerInterval = setInterval(function() {
-        timeLeft--;
-        quizTimer.textContent = "Time: " + timeLeft;
+    timerInterval = setInterval(function() {
+    timeLeft--;
+    quizTimer.textContent = "Time: " + timeLeft;
 
     
         if (timeLeft === 0) {
