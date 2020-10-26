@@ -1,3 +1,4 @@
+// global variables
 var startButton = document.getElementById("start-button");
 var submitScoreButton = document.getElementById("submitScore")
 var quizTimer = document.getElementById("timer");
@@ -16,7 +17,7 @@ var timerInterval;
 var correct;
 var gameScore = document.getElementById("gameScore");
 
-// show questions and hide introductory page
+// show questions and hide intro page
 function showQuestion() {
     var showQuestion = document.getElementById("showQuestion");
     showQuestion.style.display = "block";
@@ -45,6 +46,7 @@ function startTimer() {
       }, 1000); 
 }
 
+// function to start quiz
 function startQuiz() {
     showQuestion();
     startTimer();
@@ -132,6 +134,7 @@ function showScore() {
     gameScore.textContent = timeLeft;
 }
 
+// log score to localStorage
 function submitScore() {
     var inputNameEl = document.getElementById("score-name");
     localStorage.setItem("name", inputNameEl.value);

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Coding Countdown Quiz</title>
+    <title>Coding Countdown Challenge</title>
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
@@ -17,6 +17,7 @@
         </div>
     </header>
 
+    <!-- INTRO -->
     <div id="intro" class="intro">
         <div class="container">
             <h1>Coding Countdown Challenge</h1>
@@ -25,6 +26,7 @@
         </div>
     </div>
 
+    <!-- QUESTIIONS -->
     <div id="showQuestion" class="showQuestion">
         <h1 id="question"></h1>
         <button class="button" id="A" onclick="checkAnswer('A')">A</button>
@@ -35,15 +37,12 @@
         <p id="wrong">Wrong!</p>
     </div>
 
+    <!-- SCORE -->
     <div id="yourScore" class="showScore">
         <h1>Challenge Complete! Your Score:</h1>
         <h1 id="gameScore"></h1>
         <input type="text" name="score-name" class="score" id="score-name" placeholder="Enter name. Log score.">
         <button id=submitScore class="button">Submit Score</button>
-    </div>
-
-    <div class="myScores">
-        <h3 id="myScore"></h3>
     </div>
 
     <script src="assets/js/script.js"></script>
