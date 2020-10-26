@@ -1,4 +1,5 @@
 var startButton = document.getElementById("start-button");
+var submitScoreButton = document.getElementById("submitScore")
 var quizTimer = document.getElementById("timer");
 var timeLeft = 75;
 var answerButtonEl = document.getElementById("A", "B", "C", "D");
@@ -14,7 +15,6 @@ var finalQuestionIndex = 4;
 var timerInterval;
 var correct;
 var gameScore = document.getElementById("gameScore");
-var submitScoreButtonEl = document.getElementById("submitScore");
 
 // show questions and hide introductory page
 function showQuestion() {
@@ -105,11 +105,16 @@ function checkAnswer(answer) {
         showQuestion();
     }
 
-    else if (answer !== correct || currentQuestionIndex !==finalQuestionIndex) {
+    else if (answer !== correct && currentQuestionIndex !==finalQuestionIndex) {
         wrongAnswer();
         currentQuestionIndex++;
         showQuestion();
         timeLeft = timeLeft - 14;
+    }
+
+    else if (answer !== correct || answer === correct && currentQuestionIndex === finalQuestionIndex) {
+        showScore();
+        clearInterval(timerInterval);
     }
 
     else {
@@ -127,9 +132,6 @@ function showScore() {
     gameScore.textContent = timeLeft;
 }
 
-// log score function 
-function submitScore() {
-    var inputName= document.getElementById("initials");
-    localStorage.setItem("initials", inputName.value);
-    submitScoreButtonEl.addEventListener("click", inputName);
-}
+// log score
+// function submitScore () {
+    //submitScoreButton.

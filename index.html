@@ -10,7 +10,7 @@
   <body>
     <header class="header">
         <div id="high-score">
-            <a href="highscores.html">View High Scores</a>
+            <a href="highscores.html">View Scores</a>
         </div>
         <div id="timer">
             Time: 75
@@ -38,8 +38,12 @@
     <div id="yourScore" class="showScore">
         <h1>Challenge Complete! Your Score:</h1>
         <h1 id="gameScore"></h1>
-        <input type="text" class="score" id="initials" placeholder="Enter name. Log score.">
-        <button id=submitScore class="button">Submit Score</button>
+        <input type="text" name="score-name" class="score" id="initials" placeholder="Enter name. Log score.">
+        <button id=submitScore class="button" onclick="submitScore()">Submit Score</button>
+    </div>
+
+    <div class="myScores">
+        <ol id="scores"></ol>
     </div>
 
     <script src="assets/js/script.js"></script>
