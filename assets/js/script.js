@@ -136,14 +136,6 @@ function submitScore() {
     var inputNameEl = document.getElementById("score-name");
     localStorage.setItem("name", inputNameEl.value);
     localStorage.setItem("score", timeLeft);
-    
-    var addNameEl = localStorage.getItem("name");
-    var addScoreEl = localStorage.getItem("score");
-
-    var logScoreEl = document.createElement("h3");
-    
-    addNameEl.appendChild(logScoreEl);
-    addScoreEl.appendChild(logScoreEl);
 }
 
 submitScoreButton.addEventListener("click", submitScore);
